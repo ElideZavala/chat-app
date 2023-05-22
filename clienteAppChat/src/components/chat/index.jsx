@@ -5,6 +5,7 @@ import {
 } from "react-chat-engine-advanced";
 import Header from "@/components/customHeader";
 import StandartMessageForm from "@/components/customMessageForm/StandartMessageForm";
+import Ai from "@/components/customMessageForm/Ai";
 
 //? Ver si se puede cumbiar de Idioma.
 // import { LocalizationProvider } from "@mui/lab";
@@ -15,7 +16,7 @@ const Chat = () => {
         import.meta.env.VITE_PROJECT_ID,
         "eli",
         "1234"
-        );
+    );
         
     const styles = {
         container: {
@@ -34,6 +35,15 @@ const Chat = () => {
                 style={styles.chatContainer}
                 renderChatHeader={(chat) => <Header chat={chat} />}
                 renderMessageForm={(props) => {
+                    if (chatProps.chat?.title.startsWith("AiChat")) {
+                        return (
+                            <Ai
+                                props={props}
+                                activeChat={chatProps.chat}
+                            />
+                        );
+                    }
+
                     return (
                         <StandartMessageForm
                             props={props}
