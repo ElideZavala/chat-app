@@ -6,6 +6,7 @@ import {
 import Header from "@/components/customHeader";
 import StandartMessageForm from "@/components/customMessageForm/StandartMessageForm";
 import Ai from "@/components/customMessageForm/Ai";
+import AiCode from "@/components/customMessageForm/AiCode";
 
 //? Ver si se puede cumbiar de Idioma.
 // import { LocalizationProvider } from "@mui/lab";
@@ -35,7 +36,7 @@ const Chat = () => {
                 style={styles.chatContainer}
                 renderChatHeader={(chat) => <Header chat={chat} />}
                 renderMessageForm={(props) => {
-                    if (chatProps.chat?.title.startsWith("AiChat")) {
+                    if (chatProps.chat?.title.startsWith("AiChat_")) {
                         return (
                             <Ai
                                 props={props}
@@ -43,6 +44,15 @@ const Chat = () => {
                             />
                         );
                     }
+
+                    if (chatProps.chat?.title.startsWith("AiCode_")) {
+                        return (
+                            <AiCode
+                                props={props}
+                                activeChat={chatProps.chat}
+                            />
+                        );
+                    }                    
 
                     return (
                         <StandartMessageForm
