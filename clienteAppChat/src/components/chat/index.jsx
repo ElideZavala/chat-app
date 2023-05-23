@@ -18,7 +18,7 @@ const Chat = () => {
         "eli",
         "1234"
     );
-        
+
     const styles = {
         container: {
             flexBasis: "100%",
@@ -37,23 +37,21 @@ const Chat = () => {
                 renderChatHeader={(chat) => <Header chat={chat} />}
                 renderMessageForm={(props) => {
                     if (chatProps.chat?.title.startsWith("AiChat_")) {
+                        return <Ai props={props} activeChat={chatProps.chat} />;
+                    }
+                    if (chatProps.chat?.title.startsWith("AiCode_text")) {
                         return (
-                            <Ai
-                                props={props}
-                                activeChat={chatProps.chat}
-                            />
+                            <AiCode props={props} activeChat={chatProps.chat} />
                         );
                     }
-
-                    if (chatProps.chat?.title.startsWith("AiCode_")) {
-                        return (
-                            <AiCode
-                                props={props}
-                                activeChat={chatProps.chat}
-                            />
-                        );
-                    }                    
-
+                    if (chatProps.chat?.title.startsWith("AiAssist_")) {
+                        // return (
+                        //     <AiAssist
+                        //         props={props}
+                        //         activeChat={chatProps.chat}
+                        //     />
+                        // );
+                    }
                     return (
                         <StandartMessageForm
                             props={props}

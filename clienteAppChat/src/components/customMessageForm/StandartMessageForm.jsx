@@ -20,7 +20,7 @@ const StandartMessageForm = ({ props, activeChat }) => {
         const at = attachment ? [{ blob: attachment, file: attachment.name }] : [];
         const form = {
             attachments: at,
-            created: date,
+            created: date,  
             sender_username: username,
             text: message,
             activeChatId: activeChat.id,
@@ -31,12 +31,20 @@ const StandartMessageForm = ({ props, activeChat }) => {
         setAttachment("");
     };
 
+    const handleKeyDown = (e) => {
+        if (e.keyCode === 13) {
+            console.log('SELECCIONADO');
+            handleSubmit();
+        }
+    };
+
     return (
         <MessageFormUI 
             setAttachment={setAttachment}
             message={message}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            handleKeyDown={handleKeyDown}
         />
     );
 };

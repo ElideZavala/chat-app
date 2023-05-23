@@ -8,6 +8,7 @@ const MessageFormUI = ({
     message,
     handleChange,
     handleSubmit,
+    handleKeyDown
 }) => {
     const [preview, setPreview] = useState("");
 
@@ -39,6 +40,7 @@ const MessageFormUI = ({
                         type="text"
                         value={message}
                         onChange={handleChange}
+                        onKeyDown={handleKeyDown}
                         placeholder="Send a message..."
                     />
                 </div>
@@ -85,4 +87,5 @@ MessageFormUI.propTypes = {
     message: PropTypes.string,
     handleChange: PropTypes.func,
     handleSubmit: PropTypes.func,
+    handleKeyDown: PropTypes.func,
 }

@@ -34,6 +34,12 @@ const AiCode = ({ props, activeChat}) => {
         setAttachment("");
     };
 
+    const handleKeyDown = (e) => {
+        if (e.keyCode === 13) {
+            handleSubmit();
+        }
+    };
+
     return (
         <div>
             <MessageFormUI 
@@ -41,6 +47,7 @@ const AiCode = ({ props, activeChat}) => {
             message={message}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            handleKeyDown={handleKeyDown}
         />
         </div>
     )

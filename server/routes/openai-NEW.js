@@ -26,7 +26,7 @@
 
 //         // BONUS NOTE: you can also provide a list of messages to the bot to give context
 //         // and the bot can use that information to respond to the user as needed, ie adding:
-//         // { role: "assistant", content: "The weather sucks today." },
+//         { role: "assistant", content: "The weather sucks today." },
 
 //         // to the above messages array, and then asking it this question:
 //         // `how is the weather today?`

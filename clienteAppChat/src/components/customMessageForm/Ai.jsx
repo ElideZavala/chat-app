@@ -9,7 +9,7 @@ const Ai = ({ props, activeChat}) => {
     const { username , onSubmit } = props;
 
     const [ message, setMessage]       = useState("");
-    const [attachment, setAttachment] = useState("");
+    const [attachment, setAttachment]  = useState("");
     const [ trigger ] = usePostAiTextMutation();
 
     const handleChange = (e) => setMessage(e.target.value);
@@ -34,6 +34,12 @@ const Ai = ({ props, activeChat}) => {
         setAttachment("");
     };
 
+    const handleKeyDown = (e) => {
+        if (e.keyCode === 13) {
+            handleSubmit();
+        }
+    };
+
     return (
         <div>
             <MessageFormUI 
@@ -41,6 +47,7 @@ const Ai = ({ props, activeChat}) => {
             message={message}
             handleSubmit={handleSubmit}
             handleChange={handleChange}
+            handleKeyDown={handleKeyDown}
         />
         </div>
     )
