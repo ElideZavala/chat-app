@@ -7,6 +7,7 @@ import Header from "@/components/customHeader";
 import StandartMessageForm from "@/components/customMessageForm/StandartMessageForm";
 import Ai from "@/components/customMessageForm/Ai";
 import AiCode from "@/components/customMessageForm/AiCode";
+import AiAssist from "../customMessageForm/AiAssist";
 
 //? Ver si se puede cumbiar de Idioma.
 // import { LocalizationProvider } from "@mui/lab";
@@ -41,16 +42,19 @@ const Chat = () => {
                     }
                     if (chatProps.chat?.title.startsWith("AiCode_text")) {
                         return (
-                            <AiCode props={props} activeChat={chatProps.chat} />
+                            <AiCode 
+                                props={props} 
+                                activeChat={chatProps.chat} 
+                            />
                         );
                     }
                     if (chatProps.chat?.title.startsWith("AiAssist_")) {
-                        // return (
-                        //     <AiAssist
-                        //         props={props}
-                        //         activeChat={chatProps.chat}
-                        //     />
-                        // );
+                        return (
+                            <AiAssist
+                                props={props}
+                                activeChat={chatProps.chat}
+                            />
+                        );
                     }
                     return (
                         <StandartMessageForm
