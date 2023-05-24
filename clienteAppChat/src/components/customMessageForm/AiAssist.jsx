@@ -83,6 +83,7 @@ const AiAssist = ({ props, activeChat}) => {
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
                 handleKeyDown={handleKeyDown}
+                appendText={appendText}
         />
         </div>
     )
