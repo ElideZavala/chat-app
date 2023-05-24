@@ -48,11 +48,9 @@ router.post("/text", async(req, res) => {
 router.post("/code", async(req, res) => {
     try {
         const {text, activeChatId} = req.body;
-        console.log("req.body: ", req.body);
-        console.log(activeChatId, 'activeChatId');
 
         const response = await openai.createCompletion({
-            model: "code-davinci-002",
+            model: "code-davinci-003",
             prompt: text,
             temperature: 0.5,
             max_tokens: 2048,
@@ -60,6 +58,8 @@ router.post("/code", async(req, res) => {
             frequency_penalty: 0.5,
             presence_penalty: 0
         });
+
+        console.log(response, 'Response from code');
 
         await axios.post(`https://api.chatengine.io/chats/${activeChatId}/messages/`, {
             text: response.data.choices[0].text
