@@ -21,7 +21,7 @@
 
 .login-page {
     background-color: $primary-500;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -53,6 +53,24 @@
 .register-change {
     text-decoration: underline;
     color: $secondary-500;
+}
+
+.button {
+    background-color: $secondary-800;
+    color: $tertiary-50;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    display: block;
+    align-items: center;
+    width: 40%;
+
+    &:hover {
+        background-color: $secondary-500;
+    }
 }
 
 .register-change:hover {
@@ -405,7 +423,7 @@
 
 .ce-my-message-body {
     font-family: "Rubik" !important;
-    background-color: $secondary-500 !important;
+    background-color: lightcoral !important;
     color: $tertiary-50 !important;
     border-radius: 8px !important;
     font-size: 14px !important;

@@ -3,6 +3,7 @@ import {
     MultiChatSocket,
     MultiChatWindow,
 } from "react-chat-engine-advanced";
+import { PropTypes } from "prop-types";
 import Header from "@/components/customHeader";
 import StandartMessageForm from "@/components/customMessageForm/StandartMessageForm";
 import Ai from "@/components/customMessageForm/Ai";
@@ -13,11 +14,11 @@ import AiAssist from "../customMessageForm/AiAssist";
 // import { LocalizationProvider } from "@mui/lab";
 // import esLocale from "date-fns/locale/es";
 
-const Chat = () => {
+const Chat = ({ user, secret }) => {
     const chatProps = useMultiChatLogic(
         import.meta.env.VITE_PROJECT_ID,
-        "eli",
-        "1234"
+        user,
+        secret
     );
 
     const styles = {
@@ -69,3 +70,8 @@ const Chat = () => {
 };
 
 export default Chat;
+
+Chat.propTypes = {
+    user: PropTypes.string,
+    secret: PropTypes.string,
+};
