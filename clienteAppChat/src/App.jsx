@@ -25,9 +25,14 @@ function App() {
                             )
                         }
                     /> 
-                    <Route path="/chat" element={isAuth 
-                        ? <Chat user={user} secret={secret} /> 
-                        : <Navigate to="/" />
+                    <Route 
+                        path="/chat" 
+                        element={
+                            isAuth ? (
+                                <Chat user={user} secret={secret} />
+                            )  : (
+                                <Navigate to="/" />
+                            )
                     } />
                 </Routes>
             </BrowserRouter>
