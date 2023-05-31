@@ -35,8 +35,12 @@ router.post("/signup", async(req, res) => {
 
         const chatEngineResponse = await axios.post(
             "https://api.chatengine.io/users/",
-            { username, secret: password },
-            { headers: { "Private-Key": process.env.PRIVATE_KEY } }
+            { 
+                username, 
+                secret: password },
+            { 
+                headers: { "Private-Key": process.env.PRIVATE_KEY } 
+            }
         )
 
         res
@@ -45,7 +49,6 @@ router.post("/signup", async(req, res) => {
 
             console.log(res);
     } catch (error) {
-        console.error("error", error.message);
         res
             .status(500)
             .json({error: error.message});
